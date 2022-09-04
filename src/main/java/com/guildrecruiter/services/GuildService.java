@@ -5,6 +5,8 @@ import com.guildrecruiter.repositories.GuildRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class GuildService {
 
@@ -15,6 +17,9 @@ public class GuildService {
         return guildRepo.findById(id).orElse(null);
     }
 
+    public ArrayList<Guild> findAll() {
+        return (ArrayList<Guild>) guildRepo.findAll();
+    }
     public void create(Guild guild) {
         guildRepo.save(guild);
     }

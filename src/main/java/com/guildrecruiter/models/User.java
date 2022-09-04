@@ -1,9 +1,12 @@
 package com.guildrecruiter.models;
 
+import jdk.nashorn.internal.objects.annotations.Constructor;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -30,6 +33,9 @@ public class User {
     @NotEmpty(message="Confirm Password is required!")
     @Size(min=8, max=128, message="Confirm Password must be between 8 and 128 characters")
     private String confirm;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Guild> guilds;
 
     public User() {}
 
@@ -71,5 +77,13 @@ public class User {
 
     public void setConfirm(String confirm) {
         this.confirm = confirm;
+    }
+
+    public List<Guild> getGuilds() {
+        return guilds;
+    }
+
+    public void setGuilds(List<Guild> guilds) {
+        this.guilds = guilds;
     }
 }

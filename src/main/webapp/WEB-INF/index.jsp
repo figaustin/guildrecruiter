@@ -21,14 +21,35 @@
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="flex flex-col p-4 mt-4 text-lg md:flex-row md:mt-0 md:font-medium">
                 <li>
-                    <a href="#" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400 rounded md:bg-transparent md:p-0 dark:text-white" aria-current="page">Guilds</a>
+                    <a href="#" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400" aria-current="page">Guilds</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 pr-4 pl-3 text-white rounded hover:bg-gray-400 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Recruits</a>
+                    <a href="#" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400">Recruits</a>
+                </li>
+            </ul>
+        </div>
+        <div class="w-full md:block md:w-auto">
+            <ul class="flex flex-col p-4 mt-4 text-lg md:flex-row md:mt-0 md:font-medium">
+                <li>
+                    <a href="/signup" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400 ">Sign Up</a>
+                </li>
+                <li>
+                    <a href="/login" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400 ">Log In</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+    <c:set var="user" scope="session"/>
+    <p>${user.name}</p>
+    <c:forEach var="guild" items="${guilds}">
+        <div class="border mx-auto flex">
+            <p>${guild.name}</p>
+            <p>${guild.game}</p>
+            <p>Region:${guild.region}</p>
+            <p>Server:${guild.server}</p>
+            <p>${guild.faction}</p>
+        </div>
+    </c:forEach>
 </body>
 </html>
