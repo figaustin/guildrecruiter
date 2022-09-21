@@ -28,20 +28,34 @@
                 </li>
             </ul>
         </div>
-        <div class="w-full md:block md:w-auto">
-            <ul class="flex flex-col p-4 mt-4 text-lg md:flex-row md:mt-0 md:font-medium">
-                <li>
-                    <a href="/signup" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400 ">Sign Up</a>
-                </li>
-                <li>
-                    <a href="/login" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400 ">Log In</a>
-                </li>
-            </ul>
-        </div>
+        <c:choose>
+            <c:when test="${user != null}">
+                <div class="w-full md:block md:w-auto">
+                    <ul class="flex flex-col p-4 mt-4 text-lg md:flex-row md:mt-0 md:font-medium">
+                        <li>
+                            <a href="#" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400 ">${user.name}</a>
+                        </li>
+                    </ul>
+                </div>
+            </c:when>
+            <c:otherwise>
+                <div class="w-full md:block md:w-auto">
+                    <ul class="flex flex-col p-4 mt-4 text-lg md:flex-row md:mt-0 md:font-medium">
+                        <li>
+                            <a href="/signup" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400 ">Sign Up</a>
+                        </li>
+                        <li>
+                            <a href="/login" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400 ">Log In</a>
+                        </li>
+                    </ul>
+                </div>
+            </c:otherwise>
+        </c:choose>
+
     </div>
 </nav>
-    <c:set var="user" scope="session"/>
-    <p>${user.name}</p>
+
+
     <c:forEach var="guild" items="${guilds}">
         <div class="border mx-auto flex">
             <p>${guild.name}</p>

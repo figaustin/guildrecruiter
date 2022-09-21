@@ -1,6 +1,5 @@
 package com.guildrecruiter.models;
 
-import jdk.nashorn.internal.objects.annotations.Constructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;

@@ -1,5 +1,7 @@
 package com.guildrecruiter.models;
 
+
+import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -47,6 +49,10 @@ public class Guild {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToMany(mappedBy = "guild", fetch = FetchType.LAZY)
+    private List<GuildApplication> guildApplications;
+
 
     public User getUser() {
         return user;
@@ -144,5 +150,11 @@ public class Guild {
         this.game = game;
     }
 
+    public List<GuildApplication> getGuildApplications() {
+        return guildApplications;
+    }
 
+    public void setGuildApplications(List<GuildApplication> guildApplications) {
+        this.guildApplications = guildApplications;
+    }
 }
