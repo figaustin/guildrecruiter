@@ -8,13 +8,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
-    <h1>Create Your Recruiting Post</h1>
-
-    <form:form action="/guild/create" method="post" modelAttribute="guild">
+    <form:form action="/guild/edit/${guild.id}" method="post" modelAttribute="guild">
         <form:label path="name">Guild Name:</form:label>
         <form:input path="name" type="text"/>
         <form:label path="game">Game:</form:label>
@@ -35,8 +34,9 @@
         <form:input path="language" type="text"/>
         <form:label path="description">Description:</form:label>
         <form:textarea path="description"/>
+        <form:hidden path="id" value="${guild.id}"/>
         <form:hidden path="user" value="${user.id}"/>
-        <input type="submit" value="Create Post">
+        <input type="submit" value="Update">
     </form:form>
 </body>
 </html>

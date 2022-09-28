@@ -24,5 +24,30 @@
     <p>About us: ${guild.description}</p>
     <a href="/guild/apply/${guild.id}">Apply To Guild</a>
 
+    <h1>Apply to ${guild.name}</h1>
+
+    <form:form action="/guild/${guild.id}" method="post" modelAttribute="guildApplication">
+        <form:label path="name">Character Name:</form:label>
+        <form:errors path="name"></form:errors>
+        <form:input path="name" type="text"/>
+        <form:label path="email">Your email (for contact purposes):</form:label>
+        <form:errors path="email"></form:errors>
+        <form:input path="email" type="text"/>
+        <form:label path="characterLevel">Character Level: </form:label>
+        <form:errors path="characterLevel"></form:errors>
+        <form:input path="characterLevel" type="number"/>
+        <form:label path="characterClass">Character Class:</form:label>
+        <form:errors path="characterClass"></form:errors>
+        <form:input path="characterClass"/>
+        <form:label path="itemLevel">Character Item Level:</form:label>
+        <form:errors path="itemLevel"></form:errors>
+        <form:input path="itemLevel" type="number"/>
+        <form:label path="message">Message: </form:label>
+        <form:errors path="message"></form:errors>
+        <form:textarea path="message"></form:textarea>
+        <form:hidden path="guild" value="${guild.id}"/>
+        <input type="submit" value="Apply">
+    </form:form>
+
 </body>
 </html>

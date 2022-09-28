@@ -21,7 +21,7 @@
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="flex flex-col p-4 mt-4 text-lg md:flex-row md:mt-0 md:font-medium">
                 <li>
-                    <a href="#" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400" aria-current="page">Guilds</a>
+                    <a href="/guild/list" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400" aria-current="page">Guilds</a>
                 </li>
                 <li>
                     <a href="#" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400">Recruits</a>
@@ -33,7 +33,7 @@
                 <div class="w-full md:block md:w-auto">
                     <ul class="flex flex-col p-4 mt-4 text-lg md:flex-row md:mt-0 md:font-medium">
                         <li>
-                            <a href="#" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400 ">${user.name}</a>
+                            <a href="/user/${user.id}" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400 ">${user.name}</a>
                         </li>
                     </ul>
                 </div>
@@ -51,19 +51,23 @@
                 </div>
             </c:otherwise>
         </c:choose>
-
     </div>
 </nav>
+    <div class="flex items-center justify-center flex-col gap-6 mt-24">
+        <p class="text-6xl">Welcome to GuildRecruiter</p>
+        <p class="text-3xl w-2/5 whitespace-normal text-center">GuildRecruiter is the easiest place to find a guild or members that fit your needs and wants for any game!</p>
+        <div class="text-lg whitespace-normal text-center">
+            <a href="/guild/list" class="bg-zinc-900 hover:bg-zinc-700 text-white font-bold py-2 px-4 rounded">Looking for guilds? Go here.</a>
+            <c:choose>
+                <c:when test="${user != null}">
+                    <a href="/guild/create" class="bg-zinc-900 hover:bg-zinc-700 text-white font-bold py-2 px-4 rounded">Post your guild here</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="/signup" class="bg-zinc-900 hover:bg-zinc-700 text-white font-bold py-2 px-4 rounded">Sign Up or Login to post your guild</a>
+                </c:otherwise>
+            </c:choose>
 
-
-    <c:forEach var="guild" items="${guilds}">
-        <div class="border mx-auto flex">
-            <p>${guild.name}</p>
-            <p>${guild.game}</p>
-            <p>Region:${guild.region}</p>
-            <p>Server:${guild.server}</p>
-            <p>${guild.faction}</p>
         </div>
-    </c:forEach>
+    </div>
 </body>
 </html>

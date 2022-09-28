@@ -77,4 +77,14 @@ public class RootController {
         return "redirect:/";
     }
 
+    @GetMapping("/user/{id}")
+    public String userPage(Model model, HttpSession session) {
+        if(session.getAttribute("user") == null) {
+            return "redirect:/";
+        }
+        User user = (User) session.getAttribute("user");
+        model.addAttribute("guilds", user.getGuilds());
+        return "userPage";
+    }
+
 }

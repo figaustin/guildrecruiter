@@ -13,8 +13,19 @@
     <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
-    <h1>Apply to ${guild.name}</h1>
 
+    <c:forEach var="guild" items="${guilds}">
+        <div class="max-w-sm rounded overflow-hidden shadow-lg">
+
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">${guild.name}</div>
+                <div>
+                    <p>${guild.game}, ${guild.server}</p>
+                </div>
+            </div>
+
+        </div>
+    </c:forEach>
 
 </body>
 </html>

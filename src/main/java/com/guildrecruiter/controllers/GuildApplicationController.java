@@ -23,21 +23,5 @@ public class GuildApplicationController {
     @Autowired
     private GuildService guildService;
 
-    @GetMapping("/apply/{id}")
-    public String createApplication(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("guild", guildService.findById(id));
-        model.addAttribute("guildApplication", new GuildApplication());
-        return "guildApplication";
-    }
 
-    @PostMapping("/apply/{id}")
-    public String apply(@Valid @ModelAttribute("guildApplication")GuildApplication guildApplication,@PathVariable("id") Long id, BindingResult res, Model model, HttpSession session) {
-        if(res.hasErrors()) {
-            model.addAttribute("guild", guildService.findById(id));
-            model.addAttribute("guildApplication", new GuildApplication());
-            return "guildApplication";
-        }
-        guildApplicationService.create(guildApplication);
-        return "redirect:/";
-    }
 }
