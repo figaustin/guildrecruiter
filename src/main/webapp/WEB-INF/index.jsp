@@ -15,16 +15,13 @@
 
 <nav class="bg-zinc-900 border-white px-2 sm:px-4 py-2.5 dark:bg-zinc-900">
     <div class="container flex flex-wrap items-center mx-auto">
-        <a href="#" class="flex items-center mr-24">
+        <a href="/" class="flex items-center mr-24">
             <span class="self-center text-3xl font-semibold whitespace-nowrap dark:text-white">GuildRecruiter</span>
         </a>
         <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="flex flex-col p-4 mt-4 text-lg md:flex-row md:mt-0 md:font-medium">
                 <li>
                     <a href="/guild/list" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400" aria-current="page">Guilds</a>
-                </li>
-                <li>
-                    <a href="#" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400">Recruits</a>
                 </li>
             </ul>
         </div>
@@ -55,7 +52,7 @@
 </nav>
     <div class="flex items-center justify-center flex-col gap-6 mt-24">
         <p class="text-6xl">Welcome to GuildRecruiter</p>
-        <p class="text-3xl w-2/5 whitespace-normal text-center">GuildRecruiter is the easiest place to find a guild or members that fit your needs and wants for any game!</p>
+        <p class="text-3xl w-2/5 whitespace-normal text-center">GuildRecruiter is the easiest place to find a guild, or recruits that fit your needs and wants for any game!</p>
         <div class="text-lg whitespace-normal text-center">
             <a href="/guild/list" class="bg-zinc-900 hover:bg-zinc-700 text-white font-bold py-2 px-4 rounded">Looking for guilds? Go here.</a>
             <c:choose>
