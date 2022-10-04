@@ -29,7 +29,10 @@
                 <div class="w-full md:block md:w-auto">
                     <ul class="flex flex-col p-4 mt-4 text-lg md:flex-row md:mt-0 md:font-medium">
                         <li>
-                            <a href="/user/${user.id}" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400 ">${user.name}</a>
+                            <a href="/user/${user.id}" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400 ">My Guilds</a>
+                        </li>
+                        <li>
+                            <a href="/logout" class="block py-2 pr-4 pl-3 text-white hover:text-gray-400 ">Logout</a>
                         </li>
                     </ul>
                 </div>

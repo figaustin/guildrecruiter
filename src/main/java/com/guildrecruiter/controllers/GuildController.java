@@ -58,8 +58,10 @@ public class GuildController {
             model.addAttribute("guild", new Guild());
             return "createGuild";
         }
+        User user = (User) session.getAttribute("user");
+        Long userId = user.getId();
         guildService.create(newGuild);
-        return "redirect:/";
+        return "redirect:/user/" + userId;
     }
 
     @GetMapping("/list")

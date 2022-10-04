@@ -83,8 +83,14 @@ public class RootController {
             return "redirect:/";
         }
         User user = (User) session.getAttribute("user");
-        model.addAttribute("guilds", user.getGuilds());
+        Long userId = user.getId();
+        model.addAttribute("guilds", userService.findById(userId).getGuilds());
         return "userPage";
     }
 
+    @GetMapping("/logout")
+    public String logout(Model model, HttpSession session) {
+        userService.logout(session);
+        return "redirect:/";
+    }
 }
