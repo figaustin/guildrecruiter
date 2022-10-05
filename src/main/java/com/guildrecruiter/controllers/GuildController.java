@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/guild")
@@ -98,6 +99,13 @@ public class GuildController {
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable("id") Long id){
         Guild guild = guildService.findById(id);
+        List<GuildApplication> guildApplicationList = guild.getGuildApplications();
+
+        for(GuildApplication guildApplication : guildApplicationList) {
+            Long appId = guildApplication.getId();
+            guildApplicationService.delete(appId);
+        }
+
         guildService.delete(id);
         return "redirect:/user/" + guild.getUser().getId();
     }
